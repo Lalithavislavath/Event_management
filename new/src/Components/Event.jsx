@@ -47,7 +47,7 @@ function Event() {
       const [events, setEvents] = useState(mockEvents);
       const [registeredEvents, setRegisteredEvents] = useState([]);
       const [filters, setFilters] = useState({ category: "", location: "", date: "" });
-
+      const [searchQuery, setSearchQuery] = useState("");
 
       setEvents((prev) =>
         prev.map((event) =>
@@ -78,6 +78,66 @@ function Event() {
   return (
     <div>
        <h1>Event Management System</h1>
+
+       <div style={{ marginBottom: "20px" }}>
+        <h2>Add New Event</h2>
+        <input
+          type="text"
+          placeholder="Event Name"
+          value={newEvent.name}
+          onChange={(e) => setNewEvent({ ...newEvent, name: e.target.value })}
+        />
+        <input
+          type="date"
+          value={newEvent.date}
+          onChange={(e) => setNewEvent({ ...newEvent, date: e.target.value })}
+        />
+        <input
+          type="text"
+          placeholder="Location"
+          value={newEvent.location}
+          onChange={(e) => setNewEvent({ ...newEvent, location: e.target.value })}
+        />
+        <textarea
+          placeholder="Description"
+          value={newEvent.description}
+          onChange={(e) => setNewEvent({ ...newEvent, description: e.target.value })}
+        />
+        <input
+          type="text"
+          placeholder="Category (e.g., Workshop, Conference)"
+          value={newEvent.category}
+          onChange={(e) => setNewEvent({ ...newEvent, category: e.target.value })}
+        />
+        <input
+          type="number"
+          placeholder="Capacity"
+          value={newEvent.capacity}
+          onChange={(e) => setNewEvent({ ...newEvent, capacity: e.target.value })}
+        />
+        <button onClick={handleAddEvent}>Add Event</button>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     </div>
   )
 }
